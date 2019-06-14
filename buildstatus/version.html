@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="static/js/jquery-2.1.1.min.js"></script>
+    <title>Build Status - version</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+$.getJSON('/analytics/event.hosts', function(hosts) {
+  $.getJSON('/analytics/switch.version', function(objects) {
+    sorted_keys = Object.keys(objects).sort()
+    for(var idx in sorted_keys) {
+      host = sorted_keys[idx];
+
+      var entry = objects[host];
+
+      var tr = $('<tr>');
+      tr.append($('<td>').text(host));
+      var str = entry.version.split(':')[1];
+      if (str == '')
+        continue;
+      tr.append($('<td>').text(window.atob(str)));
+
+      $('#errors').append(tr);
+    }
+  });
+});
+    </script>
+  </head>
+  <body>
+    <table id="errors">
+      <tr>
+        <th>Switch</th>
+        <th>Firmware</th>
+      </tr>
+    </table>
+  </body>
+</html>

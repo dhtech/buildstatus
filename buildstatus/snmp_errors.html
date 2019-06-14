@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="static/js/jquery-2.1.1.min.js"></script>
+    <script src="static/js/buildstatus.js"></script>
+    <title>Build Status - SNMP errors</title>
+    <script>
+$.getJSON('/analytics/snmp.errors', function(objects) {
+
+  sorted_keys = Object.keys(objects).sort()
+  for(var idx in sorted_keys) {
+    host = sorted_keys[idx];
+
+    var object = objects[host];
+
+    var tr = $('<tr>');
+    tr.append($('<td>').text(host));
+    tr.append($('<td>').text(object.error));
+    tr.append($('<td>').text(Math.ceil(object.since) + ' seconds ago'));
+
+    console.log(tr);
+    $('#errors').append(tr);
+  }
+});
+    </script>
+  </head>
+  <body>
+    <table id="errors">
+      <tr>
+        <th>Host</th>
+        <th>Error</th>
+        <th>When</th>
+      </tr>
+    </table>
+  </body>
+</html>

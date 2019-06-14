@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="static/css/buildstatus.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+    <script src="static/js/jquery-2.1.1.min.js"></script>
+    <script src="static/js/buildstatus.js"></script>
+
+    <title>Build Status - Dreamhack</title>
+  </head>
+
+  <body>
+    <header>
+      Dreamhack Build Status
+    </header>
+    <div class="wrapper">
+        <div class="card">
+          <div class="filter-container">
+            <div class="filter">
+              <input type="checkbox" id="show_access" checked onchange="renderStatus()" />
+              <label for="show_access">Access</label>
+            </div>
+            <div class="filter">
+              <input type="checkbox" id="show_dist" checked onclick="renderStatus()" />
+              <label for="show_dist">Dist</label>
+            </div>
+            <div class="filter">
+              <input type="checkbox" id="show_core" checked onclick="renderStatus()" />
+              <label for="show_core">Core</label>
+            </div>
+            <div class="filter">
+              <input type="checkbox" id="show_firewall" checked onclick="renderStatus()" />
+              <label for="show_firewall">Firewall</label>
+            </div>
+            <div class="filter">
+              <input type="checkbox" id="show_wifi" checked onclick="renderStatus()" />
+              <label for="show_wifi">WiFi</label>
+            </div>
+            <div class="filter">
+              <input type="checkbox" id="show_servers" checked onclick="renderStatus()" />
+              <label for="show_servers">Servers</label>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="tooltip"></div>
+            <table id="errors">
+            <thead>
+              <tr class="no-border">
+                <th>Host</th>
+                <th>Alert</th>
+                <th>Ping</th>
+                <th>SNMP</th>
+                <th>Rancid</th>
+                <th>Syslog</th>
+              </tr>
+            </thead>
+            <tbody>
+            </table>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+/* Copyright 2019 dhtech
+ *
+ * Use of this source code is governed by a BSD-style
+ * license that can be found in the LICENSE file
+*/
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  font-weight: 300;
+  background: linear-gradient(-45deg,#212121,#303030);
+}
+
+header {
+  height: 50px;
+  width: 100%;
+  background-color: #f60;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.20);
+  line-height: 50px;
+  color: #fff;
+  font-size: 150%;
+  font-weight: 300;
+  text-align: center;
+}
+
+.wrapper {
+  margin: auto;
+  max-width: 800px;
+  flex-direction: column;
+  padding-top: 8px;
+  display: flex;
+  width: 100%;
+}
+
+.card {
+  background: #424242;
+  width: 100%;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+  margin: 8px;
+}
+
+.filter-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.filter {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 150px;
+  padding: 16px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  border: 1px solid #eee;
+  content: "\00a0";
+  display: inline-block;
+  height: 20px;
+  margin: 0 7px 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 20px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+}
+input[type="checkbox"]:checked + label:before {
+  background: #f60;
+  color: #fff;
+  font-size: 130%;
+  content: "\2713";
+  text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+label {
+  height: 23px;
+  line-height: 23px;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+button:focus {
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table tr  {
+  border-top: 1px rgba(255, 255, 255, 0.70) solid;
+}
+
+td:first-child {
+  text-align: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+th:first-child {
+  text-align: left;
+  padding-left: 13px;
+}
+td:last-child {
+  border: none !important;
+}
+
+table td {
+  text-align: center;
+  padding: 13px;
+}
+
+.no-center {
+  text-align: left;
+}
+
+.no-border {
+  border: none;
+}
+
+
+table thead {
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+table th {
+  font-weight: 500;
+}
+
+#tooltip {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  border-radius: 2px;
+  border: 1px solid #eee;
+  padding: 2px 5px;
+  background: #fff;
+  color: #525252;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+}
+
+
+#errors
+{
+  width: 100%;
+  height: 100%;
+}
+#errors th
+{
+  height: 50px;
+  width: 50px;
+}
