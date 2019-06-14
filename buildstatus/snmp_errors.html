@@ -5,6 +5,8 @@
     <script src="static/js/buildstatus.js"></script>
     <title>Build Status - SNMP errors</title>
     <script>
+//TODO (ventris): Currently analytics and buildstatus needs to be on the same host
+// Change the request below to go to an external page instead.
 $.getJSON('/analytics/snmp.errors', function(objects) {
 
   sorted_keys = Object.keys(objects).sort()

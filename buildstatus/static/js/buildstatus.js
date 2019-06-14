@@ -167,37 +167,37 @@ function updateStatus() {
 }
 
 function appendStatusRow(tr, entry, prop) {
-    if (entry[prop] == 'check') {
-      tr.append($('<td>')
-        .html('<i class="fas fa-'+ entry[prop] +'"></i>')
-    	.css('background-color', '#28a745')
-        .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
-        .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
-    } else if (entry[prop] == 'info') {
-      tr.append($('<td>')
-        .html('<i class="fas fa-'+ entry[prop] +'"></i>')
-    	.css('background-color', '#ffc107')
-        .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
-        .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
-    } else if (entry[prop] == 'times') {
-      tr.append($('<td>')
-        .html('<i class="fas fa-'+ entry[prop] +'"></i>')
-	.css('background-color', '#dc3545')
-        .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
-        .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
-    } else if (entry[prop] == 'eye') {
-      tr.append($('<td>')
-        .html('<i class="fas fa-'+ entry[prop] +'"></i>')
-	.css('background-color','#f2f2f2')
-        .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
-        .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
-    } else if (entry[prop] == 'exclamation') {
-      tr.append($('<td>')
-        .html('<i class="fas fa-'+ entry[prop] +'"></i>')
-        .css('background-color','#6f42c1')
-        .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
-        .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
-    }
+  if (entry[prop] == 'check') {
+    tr.append($('<td>')
+      .html('<i class="fas fa-'+ entry[prop] +'"></i>')
+    .css('background-color', '#28a745')
+      .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
+      .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
+  } else if (entry[prop] == 'info') {
+    tr.append($('<td>')
+      .html('<i class="fas fa-'+ entry[prop] +'"></i>')
+    .css('background-color', '#ffc107')
+      .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
+      .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
+  } else if (entry[prop] == 'times') {
+    tr.append($('<td>')
+      .html('<i class="fas fa-'+ entry[prop] +'"></i>')
+      .css('background-color', '#dc3545')
+      .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
+      .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
+  } else if (entry[prop] == 'eye') {
+    tr.append($('<td>')
+      .html('<i class="fas fa-'+ entry[prop] +'"></i>')
+      .css('background-color','#f2f2f2')
+      .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
+      .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
+  } else if (entry[prop] == 'exclamation') {
+    tr.append($('<td>')
+      .html('<i class="fas fa-'+ entry[prop] +'"></i>')
+      .css('background-color','#6f42c1')
+      .css('border-right', '1px rgba(255, 255, 255, 0.70) solid')
+      .hover(showError.bind(null, entry.error[prop], entry.updated[prop]), hideError));
+  }
 }
 
 function renderStatus() {
@@ -235,24 +235,25 @@ function renderStatus() {
     }
 
     var tr = $('<tr>');
-	
-	
-	if(host_options.silence == 1)
+
+  if(host_options.silence == 1)
       tr.append($('<td>')
-	 .css('background-color','#f2f2f2')
-	 .text(host.replace(/^([^.]+)\.event\.dreamhack\.(local|se)$/, '$1')+' (silenced)'));
+   .css('background-color','#f2f2f2')
+    //TODO (ventris): Change the host replace here to be generic. As of now this
+    // only works with hosts within dreamhack. Move this to ENV instead
+   .text(host.replace(/^([^.]+)\.event\.dreamhack\.(local|se)$/, '$1')+' (silenced)'));
     else
       tr.append($('<td>').text(host.replace(/^([^.]+)\.event\.dreamhack\.(local|se)$/, '$1')));
 
-	// Lighter gray if silenced
+  // Lighter gray if silenced
     if(host_options.silence == 1){
       entry['alert'] = 'eye';
       entry['ping'] = 'eye';
       entry['snmp'] = 'eye';
       entry['rancid'] = 'eye';
       entry['syslog'] = 'eye';
-	}
-	
+  }
+
     appendStatusRow(tr, entry, 'alert');
     appendStatusRow(tr, entry, 'ping');
     appendStatusRow(tr, entry, 'snmp');

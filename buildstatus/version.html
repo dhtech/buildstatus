@@ -5,6 +5,8 @@
     <title>Build Status - version</title>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
+//TODO (ventris): Currently analytics and buildstatus needs to be on the same host
+// Change the request below to go to an external page instead.
 $.getJSON('/analytics/event.hosts', function(hosts) {
   $.getJSON('/analytics/switch.version', function(objects) {
     sorted_keys = Object.keys(objects).sort()

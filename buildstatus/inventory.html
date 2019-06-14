@@ -6,6 +6,8 @@
     <title>Build Status - inventory</title>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
+//TODO (ventris): Currently analytics and buildstatus needs to be on the same host
+// Change the request below to go to an external page instead.
 $.getJSON('/analytics/inventory', function(objects) {
 
   sorted_keys = Object.keys(objects).sort()
